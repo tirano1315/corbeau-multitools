@@ -1,0 +1,427 @@
+function decodeBase64(){
+const text=document.getElementById("decodeInput").value;
+document.getElementById("decodeOutput").innerText=atob(text);
+}
+
+function generateApiKey(){
+const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+let key="";
+for(let i=0;i<32;i++){
+key+=chars.charAt(Math.floor(Math.random()*chars.length));
+}
+document.getElementById("apikey").innerText=key;
+}
+
+function countWords(){
+const text=document.getElementById("wordInput").value.trim();
+document.getElementById("wordResult").innerText=
+text===""?0:text.split(/\s+/).length;
+}
+
+function countChars(){
+const text=document.getElementById("charInput").value;
+document.getElementById("charResult").innerText=text.length;
+}
+
+function reverseText(){
+const text=document.getElementById("reverseInput").value;
+document.getElementById("reverseResult").innerText=
+text.split("").reverse().join("");
+}
+
+function upperText(){
+document.getElementById("upperResult").innerText=
+document.getElementById("upperInput").value.toUpperCase();
+}
+
+function lowerText(){
+document.getElementById("lowerResult").innerText=
+document.getElementById("lowerInput").value.toLowerCase();
+} }}}} <div class="category">📝 Texte</div>
+
+<div class="grid">
+
+<div class="tool card">
+<h3>🔓 Base64 Decode</h3>
+<input id="decodeInput">
+<button onclick="decodeBase64()">Décoder</button>
+<div id="decodeOutput" class="result"></div>
+</div>
+
+<div class="tool card">
+<h3>🔑 API Key</h3>
+<button onclick="generateApiKey()">Créer</button>
+<div id="apikey" class="result"></div>
+</div>
+
+<div class="tool card">
+<h3>📝 Compteur mots</h3>
+<input id="wordInput">
+<button onclick="countWords()">Compter</button>
+<div id="wordResult" class="result"></div>
+</div>
+
+<div class="tool card">
+<h3>🔠 Compteur caractères</h3>
+<input id="charInput">
+<button onclick="countChars()">Compter</button>
+<div id="charResult" class="result"></div>
+</div>
+
+<div class="tool card">
+<h3>🔁 Inverser texte</h3>
+<input id="reverseInput">
+<button onclick="reverseText()">Inverser</button>
+<div id="reverseResult" class="result"></div>
+</div>
+
+<div class="tool card">
+<h3>🔼 MAJUSCULE</h3>
+<input id="upperInput">
+<button onclick="upperText()">Convertir</button>
+<div id="upperResult" class="result"></div>
+</div>
+
+<div class="tool card">
+<h3>🔽 minuscule</h3>
+<input id="lowerInput">
+<button onclick="lowerText()">Convertir</button>
+<div id="lowerResult" class="result"></div>
+</div>
+
+</div>function urlEncode(){
+const text=document.getElementById("urlEncodeInput").value;
+document.getElementById("urlEncodeResult").innerText=
+encodeURIComponent(text);
+}
+
+function urlDecode(){
+const text=document.getElementById("urlDecodeInput").value;
+document.getElementById("urlDecodeResult").innerText=
+decodeURIComponent(text);
+}
+
+function formatJSON(){
+try{
+const json=JSON.parse(
+document.getElementById("jsonInput").value
+);
+
+document.getElementById("jsonResult").innerText=
+JSON.stringify(json,null,2);
+
+}catch{
+document.getElementById("jsonResult").innerText=
+"JSON invalide";
+}
+}
+
+function validateJSON(){
+try{
+JSON.parse(
+document.getElementById("jsonValidateInput").value
+);
+
+document.getElementById("jsonValidateResult").innerText=
+"✅ JSON valide";
+
+}catch{
+document.getElementById("jsonValidateResult").innerText=
+"❌ JSON invalide";
+}
+}
+
+function generateHEX(){
+const color=
+"#"+Math.floor(Math.random()*16777215)
+.toString(16)
+.padStart(6,"0");
+
+document.getElementById("hexResult").innerText=color;
+}
+
+function loremIpsum(){
+document.getElementById("loremResult").innerText=
+"Lorem ipsum dolor sit amet consectetur adipiscing elit.";
+}
+
+function randomName(){
+const names=[
+"Corbeau",
+"Shadow",
+"Ghost",
+"Titan",
+"Nova",
+"Falcon",
+"Pixel",
+"Storm"
+document.getElementById("nameResult").innerText=
+names[Math.floor(Math.random()*names.length)];
+}y}}}}<div class="category">💻 Développement+</div>
+
+<div class="grid">
+
+<div class="tool card">
+<h3>🌐 URL Encode</h3>
+<input id="urlEncodeInput">
+<button onclick="urlEncode()">Encoder</button>
+<div id="urlEncodeResult"></div>
+</div>
+
+<div class="tool card">
+<h3>🌐 URL Decode</h3>
+<input id="urlDecodeInput">
+<button onclick="urlDecode()">Décoder</button>
+<div id="urlDecodeResult"></div>
+</div>
+
+<div class="tool card">
+<h3>📋 JSON Formatter</h3>
+<textarea id="jsonInput"></textarea>
+<button onclick="formatJSON()">Formatter</button>
+<div id="jsonResult"></div>
+</div>
+
+<div class="tool card">
+<h3>✅ JSON Validator</h3>
+<textarea id="jsonValidateInput"></textarea>
+<button onclick="validateJSON()">Vérifier</button>
+<div id="jsonValidateResult"></div>
+</div>
+
+</div>
+
+<div class="category">🎨 Générateurs</div>
+
+<div class="grid">
+
+<div class="tool card">
+<h3>🎨 HEX Color</h3>
+<button onclick="generateHEX()">Générer</button>
+<div id="hexResult"></div>
+</div>
+
+<div class="tool card">
+<h3>📜 Lorem Ipsum</h3>
+<button onclick="loremIpsum()">Créer</button>
+<div id="loremResult"></div>
+</div>
+
+<div class="tool card">
+<h3>🎮 Pseudo Aléatoire</h3>
+<button onclick="randomName()">Créer</button>
+<div id="nameResult"></div>
+</div>
+
+</div>let stopwatchInterval;
+let stopwatchSeconds = 0;
+
+function startStopwatch(){
+clearInterval(stopwatchInterval);
+
+stopwatchInterval = setInterval(() => {
+stopwatchSeconds++;
+
+document.getElementById("stopwatchResult").innerText =
+stopwatchSeconds + " sec";
+},1000);
+}
+
+function stopStopwatch(){
+clearInterval(stopwatchInterval);
+}
+
+function resetStopwatch(){
+clearInterval(stopwatchInterval);
+stopwatchSeconds = 0;
+
+document.getElementById("stopwatchResult").innerText =
+"0 sec";
+}
+
+function startTimer(){
+let time =
+parseInt(document.getElementById("timerInput").value);
+
+const interval = setInterval(() => {
+
+document.getElementById("timerResult").innerText =
+time + " sec";
+
+time--;
+
+if(time < 0){
+clearInterval(interval);
+
+document.getElementById("timerResult").innerText =
+"⏰ Terminé";
+}
+
+},1000);
+}
+
+function rollDice(){
+document.getElementById("diceResult").innerText =
+Math.floor(Math.random()*6)+1;
+}
+
+function liveClock(){
+const now = new Date();
+
+document.getElementById("clockResult").innerText =
+now.toLocaleTimeString();
+}
+
+setInterval(liveClock,1000);
+
+function calculate(){
+try{
+const value =
+eval(document.getElementById("calcInput").value);
+
+document.getElementById("calcResult").innerText =
+value;
+
+}catch{
+document.getElementById("calcResult").innerText =
+"Erreur";
+}
+}
+
+function rgbToHex(){
+
+let r =
+parseInt(document.getElementById("r").value);
+
+let g =
+parseInt(document.getElementById("g").value);
+
+let b =
+parseInt(document.getElementById("b").value);
+
+const hex =
+"#" +
+((1<<24)+(r<<16)+(g<<8)+b)
+.toString(16)
+.slice(1);
+
+document.getElementById("rgbHexResult").innerText =
+hex;
+}
+
+function hexToRgb(){
+
+const hex =
+document.getElementById("hexInput").value
+.replace("#","");
+
+const bigint =
+parseInt(hex,16);
+
+const r=(bigint>>16)&255;
+const g=(bigint>>8)&255;
+const b=bigint&255;
+
+document.getElementById("hexRgbResult").innerText =
+`RGB(${r}, ${g}, ${b})`;
+}<div class="category">🧮 Utilitaires</div>
+
+<div class="grid">
+
+<div class="tool card">
+<h3>🧮 Calculatrice</h3>
+<input id="calcInput" placeholder="5+5*2">
+<button onclick="calculate()">Calculer</button>
+<div id="calcResult"></div>
+</div>
+
+<div class="tool card">
+<h3>🎲 Dé Virtuel</h3>
+<button onclick="rollDice()">Lancer</button>
+<div id="diceResult"></div>
+</div>
+
+<div class="tool card">
+<h3>🕒 Horloge</h3>
+<div id="clockResult"></div>
+</div>
+
+</div>
+
+<div class="category">⏱️ Temps</div>
+
+<div class="grid">
+
+<div class="tool card">
+<h3>⏱️ Chronomètre</h3>
+
+<button onclick="startStopwatch()">
+Démarrer
+</button>
+
+<button onclick="stopStopwatch()">
+Stop
+</button>
+
+<button onclick="resetStopwatch()">
+Reset
+</button>
+
+<div id="stopwatchResult">
+0 sec
+</div>
+
+</div>
+
+<div class="tool card">
+<h3>⏲️ Minuteur</h3>
+
+<input
+id="timerInput"
+placeholder="Secondes">
+
+<button onclick="startTimer()">
+Lancer
+</button>
+
+<div id="timerResult"></div>
+
+</div>
+
+</div>
+
+<div class="category">🎨 Couleurs</div>
+
+<div class="grid">
+
+<div class="tool card">
+
+<h3>RGB ➜ HEX</h3>
+
+<input id="r" placeholder="R">
+<input id="g" placeholder="G">
+<input id="b" placeholder="B">
+
+<button onclick="rgbToHex()">
+Convertir
+</button>
+
+<div id="rgbHexResult"></div>
+
+</div>
+
+<div class="tool card">
+
+<h3>HEX ➜ RGB</h3>
+
+<input
+id="hexInput"
+placeholder="#ff0000">
+
+<button onclick="hexToRgb()">
+Convertir
+</button>
+
+<div id="hexRgbResult"></div>
+
+</div>
