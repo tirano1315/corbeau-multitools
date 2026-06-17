@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐦 Corbeau Hub</title>
+
+<style>
+body{
+background:#0b1020;
+color:white;
+font-family:Arial,sans-serif;
+padding:20px;
+}
+
+h1{
+text-align:center;
+color:#8b5cf6;
+margin-bottom:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+}
+
+.card{
+background:#161d35;
+padding:15px;
+border-radius:15px;
+}
+
+button{
+width:100%;
+padding:10px;
+border:none;
+border-radius:10px;
+background:#8b5cf6;
+color:white;
+cursor:pointer;
+margin-top:10px;
+}
+
+.result{
+margin-top:10px;
+word-break:break-word;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🐦 Corbeau Hub</h1>
+
+<div class="grid">
+
+<div class="card">
+<h3>🔑 Password</h3>
+<button onclick="generatePassword()">Créer</button>
+<div id="password" class="result"></div>
+</div>
+
+<div class="card">
+<h3>🔐 API Key</h3>
+<button onclick="generateApiKey()">Créer</button>
+<div id="apikey" class="result"></div>
+</div>
+
+<div class="card">
+<h3>🆔 UUID</h3>
+<button onclick="generateUUID()">Créer</button>
+<div id="uuid" class="result"></div>
+</div>
+
+<div class="card">
+<h3>👤 Faux Profil</h3>
+<button onclick="fakeProfile()">Créer</button>
+<div id="profile" class="result"></div>
+</div>
+
+<div class="card">
+<h3>📧 Email Fictif</h3>
+<button onclick="fakeEmail()">Créer</button>
+<div id="email" class="result"></div>
+</div>
+
+<div class="card">
+<h3>🏠 Adresse Fictive</h3>
+<button onclick="fakeAddress()">Créer</button>
+<div id="address" class="result"></div>
+</div>
+
+<div class="card">
+<h3>🏢 Entreprise</h3>
+<button onclick="fakeCompany()">Créer</button>
+<div id="company" class="result"></div>
+</div>
+
+<div class="card">
+<h3>🆔 ID Utilisateur</h3>
+<button onclick="userId()">Créer</button>
+<div id="userid" class="result"></div>
+</div>
+
+<div class="card">
+<h3>📦 Commande</h3>
+<button onclick="orderId()">Créer</button>
+<div id="order" class="result"></div>
+</div>
+
+<div class="card">
+<h3>🎁 Code Promo</h3>
+<button onclick="promoCode()">Créer</button>
+<div id="promo" class="result"></div>
+</div>
+
+<div class="card">
+<h3>📅 Date Aléatoire</h3>
+<button onclick="randomDate()">Créer</button>
+<div id="date" class="result"></div>
+</div>
+
+</div>
+
+<script>
+
+function generatePassword(){
+const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+let pass="";
+for(let i=0;i<16;i++){
+pass+=chars.charAt(Math.floor(Math.random()*chars.length));
+}
+document.getElementById("password").innerText=pass;
+}
+
+function generateApiKey(){
+const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+let key="";
+for(let i=0;i<32;i++){
+key+=chars.charAt(Math.floor(Math.random()*chars.length));
+}
+document.getElementById("apikey").innerText=key;
+}
+
+function generateUUID(){
+document.getElementById("uuid").innerText=crypto.randomUUID();
+}
+
+function fakeProfile(){
+const names=["Lucas","Nathan","Tom","Léo","Adam"];
+const surnames=["Martin","Bernard","Petit","Robert"];
+document.getElementById("profile").innerText=
+names[Math.floor(Math.random()*names.length)]+" "+
+surnames[Math.floor(Math.random()*surnames.length)];
+}
+
+function fakeEmail(){
+document.getElementById("email").innerText=
+"user"+Math.floor(Math.random()*9999)+"@gmail.com";
+}
+
+function fakeAddress(){
+const streets=[
+"12 Rue Paris",
+"55 Avenue Lyon",
+"8 Rue Victor Hugo",
+"21 Boulevard Central"
+];
+document.getElementById("address").innerText=
+streets[Math.floor(Math.random()*streets.length)];
+}
+
+function fakeCompany(){
+const companies=[
+"Corbeau Tech",
+"Nova Studio",
+"Pixel Corp",
+"Titan Labs",
+"Shadow Dev"
+];
+document.getElementById("company").innerText=
+companies[Math.floor(Math.random()*companies.length)];
+}
+
+function userId(){
+document.getElementById("userid").innerText=
+"USR-"+Math.floor(Math.random()*999999);
+}
+
+function orderId(){
+document.getElementById("order").innerText=
+"ORD-"+Math.floor(Math.random()*99999999);
+}
+
+function promoCode(){
+const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+let code="";
+for(let i=0;i<10;i++){
+code+=chars.charAt(Math.floor(Math.random()*chars.length));
+}
+document.getElementById("promo").innerText=code;
+}
+
+function randomDate(){
+const start=new Date(2020,0,1);
+const end=new Date(2030,0,1);
+const date=new Date(
+start.getTime()+Math.random()*(end.getTime()-start.getTime())
+);
+document.getElementById("date").innerText=date.toLocaleDateString();
+}
+
+</script>
+
+</body>
+</html>
