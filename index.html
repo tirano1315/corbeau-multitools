@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐦 Corbeau Hub</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0b1020;
+color:white;
+padding:20px;
+}
+
+.hero{
+text-align:center;
+padding:30px;
+background:#161d35;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:35px;
+color:#8b5cf6;
+}
+
+.hero p{
+opacity:.8;
+margin-top:10px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-top:20px;
+}
+
+.stat{
+background:#161d35;
+padding:15px;
+border-radius:15px;
+text-align:center;
+}
+
+.category{
+font-size:25px;
+margin:25px 0 10px;
+font-weight:bold;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:12px;
+}
+
+.card{
+background:#161d35;
+padding:15px;
+border-radius:15px;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+input{
+width:100%;
+padding:10px;
+border:none;
+border-radius:10px;
+margin-top:8px;
+background:#0b1020;
+color:white;
+}
+
+button{
+width:100%;
+padding:10px;
+border:none;
+border-radius:10px;
+background:#8b5cf6;
+color:white;
+margin-top:10px;
+cursor:pointer;
+}
+
+.result{
+margin-top:10px;
+word-break:break-all;
+font-size:13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+<h1>🐦 Corbeau Hub</h1>
+<p>14 outils • Sécurité • Données de test</p>
+</div>
+
+<div class="stats">
+<div class="stat">🧰 14</div>
+<div class="stat">⚡ Rapide</div>
+<div class="stat">📱 Mobile</div>
+</div><!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐦 Corbeau Hub</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0b1020;
+color:white;
+padding:20px;
+}
+
+.hero{
+text-align:center;
+padding:30px;
+background:#161d35;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:35px;
+color:#8b5cf6;
+}
+
+.hero p{
+opacity:.8;
+margin-top:10px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-top:20px;
+}
+
+.stat{
+background:#161d35;
+padding:15px;
+border-radius:15px;
+text-align:center;
+}
+
+.category{
+font-size:25px;
+margin:25px 0 10px;
+font-weight:bold;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:12px;
+}
+
+.card{
+background:#161d35;
+padding:15px;
+border-radius:15px;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+input{
+width:100%;
+padding:10px;
+border:none;
+border-radius:10px;
+margin-top:8px;
+background:#0b1020;
+color:white;
+}
+
+button{
+width:100%;
+padding:10px;
+border:none;
+border-radius:10px;
+background:#8b5cf6;
+color:white;
+margin-top:10px;
+cursor:pointer;
+}
+
+.result{
+margin-top:10px;
+word-break:break-all;
+font-size:13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+<h1>🐦 Corbeau Hub</h1>
+<p>14 outils • Sécurité • Données de test</p>
+</div>
+
+<div class="stats">
+<div class="stat">🧰 14</div>
+<div class="stat">⚡ Rapide</div>
+<div class="stat">📱 Mobile</div>
+</div><div class="category">📦 Données de test</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>👤 Faux Profil</h3>
+<button onclick="fakeProfile()">Créer</button>
+<div id="profile" class="result"></div>
+</div>
+
+<div class="card">
+<h3>📧 Email Fictif</h3>
+<button onclick="fakeEmail()">Créer</button>
+<div id="email" class="result"></div>
+</div>
+
+<div class="card">
+<h3>🏠 Adresse Fictive</h3>
+<button onclick="fakeAddress()">Créer</button>
+<div id="address" class="result"></div>
+</div>
+
+<div class="card">
+<h3>🏢 Entreprise</h3>
+<button onclick="fakeCompany()">Créer</button>
+<div id="company" class="result"></div>
+</div>
+
+<div class="card">
+<h3>🆔 ID Utilisateur</h3>
+<button onclick="userId()">Créer</button>
+<div id="userid" class="result"></div>
+</div>
+
+<div class="card">
+<h3>📦 Commande</h3>
+<button onclick="orderId()">Créer</button>
+<div id="order" class="result"></div>
+</div>
+
+<div class="card">
+<h3>🎁 Code Promo</h3>
+<button onclick="promoCode()">Créer</button>
+<div id="promo" class="result"></div>
+</div>
+
+<div class="card">
+<h3>📅 Date Aléatoire</h3>
+<button onclick="randomDate()">Créer</button>
+<div id="date" class="result"></div>
+</div>
+
+</div></body>
+</html>
